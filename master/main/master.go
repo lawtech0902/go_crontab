@@ -39,6 +39,16 @@ func main() {
 		goto ERR
 	}
 
+	// 初始化服务发现模块
+	if err = master.InitWorkerManager(); err != nil {
+		goto ERR
+	}
+
+	// 日志管理器
+	if err = master.InitLogManager(); err != nil {
+		goto ERR
+	}
+
 	// 任务管理器
 	if err = master.InitJobManager(); err != nil {
 		goto ERR
