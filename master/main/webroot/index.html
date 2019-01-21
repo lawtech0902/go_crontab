@@ -162,7 +162,7 @@
             $.ajax({
                 url: "/job/list",
                 dataType: "json",
-                success: function (resp) {
+                success: function(resp) {
                     if (resp.errno != 0) {
                         // 服务端出错
                         return
@@ -170,6 +170,7 @@
 
                     // 任务数组
                     var jobList = resp.data;
+                    console.log(jobList);
                     // 清理列表
                     $('#job-list tbody').empty();
                     // 遍历任务
@@ -182,7 +183,7 @@
                         var toolbar = $('<div class="btn-toolbar">')
                             .append('<button class="btn btn-info edit-job">编辑</button>')
                             .append('<button class="btn btn-danger delete-job">删除</button>')
-                            .append('<button class="btn btn-warning kill-job">强杀</button>')
+                            .append('<button class="btn btn-warning kill-job">强杀</button>');
                         tr.append($('<td>').append(toolbar));
                         $("#job-list tbody").append(tr);
                     }
